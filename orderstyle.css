@@ -1,0 +1,172 @@
+
+
+
+
+
+/* Order Section */
+
+
+/* Order Section Styling */
+.order-section {
+    margin: 50px auto;
+    /* max-width: 800px; */
+    text-align: center;
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.order-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 3px solid #e63946;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+
+/* Table Styling */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+thead {
+    background:#e63946;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+.order-table-head-cell {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+
+
+
+/* Order Cards Container */
+.order-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+
+/* Order Card (Landscape Mode) */
+.order-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    /* width: 90%; */
+    min-height: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s;
+    gap: 15px;
+}
+
+
+.order-card:hover {
+    transform: scale(1.02);
+}
+
+
+/* Order Number */
+.order-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #004aad;
+    flex: 1;
+}
+
+
+/* Order Details Section */
+.order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 2;
+    color: #555;
+}
+
+
+.order-details-item {
+    display: flex;
+   
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+   font-weight: 700;
+    margin-right:20px;
+     
+}
+
+
+/* Total Price Section */
+.order-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004aad;
+    justify-self: flex-start;
+    /* text-align: center; */
+    flex: 1;
+}
+
+
+/* Order Status */
+.order-status {
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    /* width: 50%; */
+    color: #fff;
+    flex: 1;
+}
+
+
+.status-delivered {
+    background-color: #27ae60;
+}
+
+
+.status-in-transit {
+    background-color: #f39c12;
+}
+
+
+.status-pending {
+    background-color: #e74c3c;
+}
+
+
+.no-orders{
+    margin: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}

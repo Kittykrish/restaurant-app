@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="orderstyle.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://placehold.co/200x80?text=ShopLogo" alt="shop-logo" class="shop-logo">
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="ourmenu.html" class="nav-link">Our Menu</a></li>
+                    <li><a href="#offers" class="nav-link">Our Offers</a></li>
+                    <li><a href="#about" class="nav-link">Know Us More</a></li>
+                    <li><a href="#orders" class="nav-link">Your Order</a></li>
+                    <li><a href="#cart" class="nav-link">Cart (0)</a></li>
+                </ul>
+                <div class="login">
+                    <a href="login.html" class="login-link">Login/Signup</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Order Section -->
+    <section class="order-section">
+        <h1 class="order-title">Your Order</h1>
+       
+        <!-- Table -->
+        <table class="order-table">
+            <thead class="order-table-head">
+                <tr>
+                    <th class="order-table-head-cell">Order No.</th>
+                    <th class="order-table-head-cell">Order details</th>
+               
+                    <th class="order-table-head-cell">Total Price</th>
+                    <th class="order-table-head-cell">Status</th>
+                </tr>
+            </thead>
+            <tbody id="order-table-body">
+                <!-- If you want to dynamically add table rows instead -->
+            </tbody>
+        </table>
+
+
+        <!-- Order Cards -->
+        <div id="order-cards" class="order-cards-container">
+            <!-- Order cards will be dynamically added here -->
+        </div>
+    </section>
+
+
+    <script>
+        // Sample order data
+        const orders = [
+            {
+                id: 1,
+                items: [
+                    { name: "Pizza", quantity: 2 },
+                    { name: "Garlic Bread", quantity: 1 },
+                ],
+                totalPrice: 25.99,
+                status: "Delivered",
+            },
+            {
+                id: 2,
+                items: [{ name: "Burger", quantity: 1 }],
+                totalPrice: 10.99,
+                status: "In Transit",
+            },
+            {
+                id: 3,
+                items: [
+                    { name: "Salad", quantity: 3 },
+                    { name: "Juice", quantity: 2 },
+                ],
+                totalPrice: 18.99,
+                status: "Pending",
+            },
+        ];
+
+
+        // Function to create an order card
+        function createOrderCard(order) {
+            const orderCard = document.createElement("div");
+            orderCard.className = "order-card";
+
+
+            // Card Content
+            orderCard.innerHTML = `
+                <div class="order-header">
+                    <span class="order-number">Order #${order.id}</span>
+                </div>
+                <div class="order-details">
+                    ${order.items
+                        .map(
+                            (item) => `
+                        <div class="order-details-item">
+                            <span>${item.name}</span>
+                            <span>x${item.quantity}</span>
+                        </div>
+                    `
+                        )
+                        .join("")}
+                </div>
+                <div class="order-total">Total: $${order.totalPrice.toFixed(2)}</div>
+                <span class="order-status status-${order.status
+                    .toLowerCase()
+                    .replace(" ", "-")}">
+                    ${order.status}
+                </span>
+            `;
+
+
+            return orderCard;
+        }
+
+
+        // Add order cards to the container
+        const orderCardsContainer = document.getElementById("order-cards");
+        if (orders.length > 0) {
+            orders.forEach((order) => {
+                const orderCard = createOrderCard(order);
+                orderCardsContainer.appendChild(orderCard);
+            });
+        } else {
+            const noOrdersMessage = document.createElement("div");
+            noOrdersMessage.className = "no-orders";
+            noOrdersMessage.textContent = "You have not ordered any food yet";
+            orderCardsContainer.appendChild(noOrdersMessage);
+        }
+    </script>
+</body>
+</html>
