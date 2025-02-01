@@ -1,7 +1,7 @@
 .menu-heading {
     position: relative;
     height: 400px;
-    background-image: url('https://placehold.co/612x418?text=AnyImage');
+    background-image: url('/image.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -9,11 +9,10 @@
     align-items: center;
     color: white;
     text-align: center;
-  }
-  
-  
-  /* Adding an overlay effect */
-  .menu-heading::before {
+}
+
+/* Adding an overlay effect */
+.menu-heading::before {
     content: "";
     position: absolute;
     top: 0;
@@ -22,21 +21,19 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); /* Black overlay with opacity */
     z-index: 1;
-  }
-  
-  
-  /* Text styling for 'Our Menu' */
-  .menu-heading h3 {
+}
+
+/* Text styling for 'Our Menu' */
+.menu-heading h3 {
     font-size: 48px;
     letter-spacing: 2px;
     font-weight: 800;
     text-transform: uppercase;
     z-index: 2;
     margin-top: 20%;
-  }
-  
-  
-  .categories-btn {
+}
+
+.categories-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,20 +45,18 @@
     /* box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); */
     width: 80%;
     margin: 50px auto;
-  }
+}
 
-  
 /* Button Group Styling */
 .button-group {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  
-  /* Button Styling */
-  .button-group button {
+}
+
+/* Button Styling */
+.button-group button {
     padding: 12px 30px;
     font-size: 18px;
     border-radius: 30px;
@@ -72,24 +67,22 @@
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     font-weight: 500;
-  }
-  
-  
-  /* Hover and Active State */
-  .button-group button:hover {
+}
+
+/* Hover and Active State */
+.button-group button:hover {
     background-color: #000000;
     color: white;
     /* transform: scale(1.1); */
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  
-  .button-group button.active {
+}
+
+.button-group button.active {
     background-color: #000000;
     color: white;
     font-weight: bold;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-  }
+}
 
 /* Search Input Styling */
 .search-input {
@@ -101,34 +94,31 @@
     outline: none;
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  /* Focus and Hover Effects for Input */
-  .search-input:focus {
+}
+
+/* Focus and Hover Effects for Input */
+.search-input:focus {
     border-color: #f0a500;
     box-shadow: 0px 6px 12px rgba(240, 165, 0, 0.2);
-  }
-  
-  
-  .search-input::placeholder {
+}
+
+.search-input::placeholder {
     color: #aaa;
     font-weight: 400;
-  }
-  
-  
-  .menu-section {
+}
+
+.menu-section {
     padding: 60px 20px;
     background-color: #f3f0f0;
   }
-   
+    
   .menu-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5rem;
     position: relative;
   }
-   
+    
   .menu-section h2::after {
     content: '';
     width: 60px;
@@ -138,316 +128,267 @@
     margin: 10px auto 0;
     border-radius: 2px;
   }
-
+    
+  /* Menu Category Styles */
   
-/* Menu Category Styles */
-
-
 .ourmenu-category {
-    /* max-width: 1200px; */
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
-    text-align: center;
-    }
-    
-    
-    .ourmenu-category-header {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    }
-    
-    
-    .ourmenu-category h3 {
-    font-size: 2.5rem;
-    color: #343a40;
-    margin: 0;
-    border-left: 5px solid #ff6f61;
-    padding-left: 15px;
-    }
-    
-    
-    .ourmenu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    }
-    
-    
-    .ourmenu-card {
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 10px;
-    }
+  /* max-width: 1200px; */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+}
 
-    
+.ourmenu-category-header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.ourmenu-category h3 {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin: 0;
+  border-left: 5px solid #ff6f61;
+  padding-left: 15px;
+}
+
+.ourmenu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.ourmenu-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
 .ourmenu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    }
-        
-        
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
 .card-image-container {
-    overflow: hidden;
-    border-radius: 16px 16px 0 0;
-    max-height: 200px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  max-height: 200px;
 }
-        
-        
+
 .ourmenu-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
-        
-        
+
 .ourmenu-card:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-        
-        
+
 .menu-card-content {
-    padding: 20px;
+  padding: 20px;
 }
-        
-        
+
 .menu-card-content h4 {
-    font-size: 1.3rem;
-    color: #ff6f61;
-    margin: 0 0 8px;
+  font-size: 1.3rem;
+  color: #ff6f61;
+  margin: 0 0 8px;
 }
-        
-        
+
 .menu-card-content p {
-    font-size: 0.95rem;
-    color: #777;
-    margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: #777;
+  margin: 0 0 12px;
 }
 
 .price {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .strike-price {
-    color: #b0b0b0;
-    font-size: 0.9rem;
+  color: #b0b0b0;
+  font-size: 0.9rem;
 }
 
 /* Updated CTA Button Hover Effect */
 .add-to-cart-btn {
-    z-index: 1; /* Ensure it stays on top */
-    margin-top: 20px;/* Ensure it stays on top */
+  z-index: 1; /* Ensure it stays on top */
+  margin-top: 20px;/* Ensure it stays on top */
 }
-
 .cta-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #ff6f61;
-    color: #fff;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0 0 16px 16px;
-    cursor: pointer;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6f61;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0 0 16px 16px;
+  cursor: pointer;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
-
 .ourmenu-card:hover .cta-button {
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .cta-button:hover {
-    background-color: #e55a4f;
+  background-color: #e55a4f;
+  
 }
+
 
 /* combos */
 
 
 
-
-/* Basic styling for the table */
-.combo-comparison {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin-bottom: 30px;
-    padding: 30px;
-  
-  
-}
-
-.combo-comparison h2 {
-    /* text-align: center; */
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-  color: #343a40;
-  /* margin: 0; */
-  border-left: 5px solid #ff6f61;
-  padding-left: 15px;
-}
-
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-.comparison-table th, .comparison-table td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #474646 ;
-}
-
-.comparison-table th {
-    background-color: #ff6f61;
-    font-weight: bold;
-    border: 1px solid #474646 ;
-    color: white;
-}
-
-.comparison-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Style for the item details within cells */
-.comparison-table .item {
+.combo-container {
     display: flex;
+    justify-content: space-between; /* Space between sections */
+    /* /* flex-wrap: wrap;  */
+    padding: 10px;
+    gap: 20px; /* Gap between sections */
+}
+
+.combo-section {
+    background-color: #ffffff; /* White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid rgba(0, 0, 0, 0.104);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px; /* Padding inside sections */
+width: calc(33.33% - 20px); 
+    text-align: center; /* Center text */
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+
+.combo-section h5 {
+    font-size: 1.5rem; /* Size of section title */
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Space below title */
+}
+
+.item {
+    margin: 10px 0; /* Space between items */
+}
+
+.item img {
+    max-width: 100%; /* Responsive images */
+    border-radius: 5px; /* Rounded corners on images */
+}
+
+.total {
+    display: flex;
+    font-weight: bold; /* Bold text for total */
+    margin-top: 15px; /* Space above total */
+    justify-content: space-between;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
+}
+.total h4 {
+color: red;
+}
+.total p {
+    margin: 5px 0; /* Space between total items */
 }
 
-.item{
-    margin-bottom: 10px;
-}
-
-.comparison-table .item img {
-    width: 60px;
-    height: auto;
-    border-radius: 4px;
-}
-
-
-.comparison-table .item p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-}
-  
-  
-  /* Styling for strike-through original price and discounted price */
-.comparison-table td strike {
-    color: #999;
-}
-
-.comparison-table td {
-    font-size: 20px;
-}
-
-.comparison-table td button.cta-btn {
-    background-color: #ff6f61;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.total p strike {
+    color: rgb(177, 175, 175); /* Red for strikethrough */
     font-size: 14px;
 }
+.total-right
+{
+    display: flex;
+ gap: 10px;
+ align-items: center;
+}
 
-.comparison-table td button.cta-btn:hover {
-    background-color: #e55a4f;
+/* CTA Button Styling */
+.cta-btn {
+
+  padding: 10px 30px;
+  border: none;
+  color: white;
+  background-color: #ff6f61;
+  border-radius: 10px 10px 0px 0px ;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease
+}
+.cta-btn:hover {
+  background-color: #e55a4f;
+  cursor: pointer;
+  
 }
 
 
-
+  
 /* Responsive Adjustments */
 @media (min-width: 768px) {
- 
-
-
+   
+  
     .menu-category .menu-cards {
      flex-wrap: wrap(3); /* Two cards per row on tablets */
     }
     .categories-btn{
         width:90% ;
     }
-   
-}
+    
+  }
 
 
-@media (min-width: 1024px) {
+  
+  @media (min-width: 1024px) {
     .menu-category .menu-cards {
       grid-template-columns: repeat(3, 1fr); /* Three cards per row on desktops */
     }
-}
+  }
 
-@media (max-width: 768px) {
+
+  
+  @media (max-width: 768px) {
     .combo-container {
         flex-direction: column; /* Stack sections vertically */
-}
+    }
 
-.combo-section {
-    width: 100%; /* Full-width on smaller screens */
-    margin-bottom: 20px; /* Add spacing between sections */
- 
-}
+    .combo-section {
+        width: 100%; /* Full-width on smaller screens */
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
 
-.combo-section h3 {
-    font-size: 1.25rem; /* Smaller title font for mobile */
-}
+    .combo-section h3 {
+        font-size: 1.25rem; /* Smaller title font for mobile */
+    }
 
-.item img {
-    max-width: 80%; /* Slightly smaller images on mobile */
-}
+    .item img {
+        max-width: 80%; /* Slightly smaller images on mobile */
+    }
 
-.total {
-    align-items: center;
-    text-align: left;
-}
+    .total {
+        align-items: center;
+        text-align: left;
+    }
 
-.total-right h4 {
-    font-size: 1rem; /* Smaller font size for total text */
-}
+    .total-right h4 {
+        font-size: 1rem; /* Smaller font size for total text */
+    }
 
-.cta-btn {
-    padding: 8px 20px; /* Smaller padding for mobile button */
-    font-size: 14px;
+    .cta-btn {
+        padding: 8px 20px; /* Smaller padding for mobile button */
+        font-size: 14px;
+    }
 }
-}
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    
-        

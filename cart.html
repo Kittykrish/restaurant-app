@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="https://placehold.co/200x80?text=ShopLogo" alt="shop-logo" class="shop-logo"/>
+            </div>
+            <!-- <div class="nav-right"> -->
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ourmenu.html">Our Menu</a></li>
+                    <li><a href="#offers">Our Offers</a></li>
+                    <li><a href="#about">Know us More</a></li>
+                    <li><a href="#orders">Your Order</a></li>
+                    <li><a href="#cart">Cart (0)</a></li>
+                </ul>
+                <div class="login">
+                    <a href="login.html">Login/signup</a>
+                </div>
+            <!-- </div> -->
+        </nav>
+    </header>
+
+
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-container"></div>
+        <div id="empty-message" style="display:none;">
+            <p>Your cart is empty. Explore our <a href="ourmenu.html">menu</a> to add items.</p>
+        </div>
+
+        <div id="cart-total">
+            <p>Total: $<span id="total-price">0</span></p>
+            <button onclick="openModal()" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </section>
+
+   
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="https://via.placeholder.com/150x50?text=ShopLogo" alt="Shop Logo" class="footer-logo" />
+            </div>
+            <div class="footer-section links-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#menu">Our Menu</a></li>
+                    <li><a href="#offers">Our Offers</a></li>
+                    <li><a href="#about">Know What We Have Achieved</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social-subscribe">
+                <h3>Wanna Get Updated with Our Exciting Offers?</h3>
+                <div class="social-links">
+                    <p>Follow us on:</p>
+                    <a href="#" class="social-link">Instagram</a> |
+                    <a href="#" class="social-link">Facebook</a> |
+                    <a href="#" class="social-link">Twitter</a>
+                </div>
+                <hr />
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Subscribe for daily exciting offers" />
+                    <button type="button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <a href="#terms">Terms & Conditions</a> |
+                <a href="#privacy">Privacy Policy</a> |
+                <a href="#reserved">All Rights Reserved</a>
+            </p>
+        </div>
+    </footer>
+    
+    
+    <!-- Modal Structure -->
+    <div id="seatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Enter Your Seat Number</h2>
+            <div class="modal-button">
+
+
+                <input type="number" id="seatNumber" placeholder="Seat Number" />
+                <button class="place-order-button" onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
+    </div>
+<script>
+    function updateTotalPrice() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalPriceElement = document.getElementById('total-price');
+        const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+        totalPriceElement.textContent = total.toFixed(2);
+    }
+
+
+function addItemToCart(itemId, title, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemIndex = cart.findIndex(item => item.id === itemId);
+
+
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity += 1;
+    } else {
+        cart.push({ id: itemId, title: title, price: price, quantity: 1 });
+    }
+
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateTotalPrice();
+    renderCart();
+}
+
+
+function incrementQuantity(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemIndex = cart.findIndex(item => item.id === itemId);
+
+
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateTotalPrice();
+        renderCart();
+    }
+}
+
+
+function decrementQuantity(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemIndex = cart.findIndex(item => item.id === itemId);
+
+
+    if (itemIndex > -1) {
+        if (cart[itemIndex].quantity > 1) {
+            cart[itemIndex].quantity -= 1;
+        } else {
+            cart.splice(itemIndex, 1);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateTotalPrice();
+        renderCart();
+    }
+}
+
+
+function removeFromCart(itemId) {
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+cart = cart.filter(item => item.id !== itemId);
+localStorage.setItem('cart', JSON.stringify(cart));
+
+updateTotalPrice(); // Update total after modifying the cart
+renderCart(); // Re-render to update the UI properly
+}
+
+
+function renderCart() {
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartContainer = document.getElementById('cart-container');
+const emptyMessage = document.getElementById('empty-message');
+const cartTotal = document.getElementById('cart-total');
+
+
+// Clear existing content in the cart container
+cartContainer.innerHTML = '';
+
+
+if (cart.length === 0) {
+emptyMessage.style.display = 'block';
+cartTotal.style.display = 'none';
+} else {
+emptyMessage.style.display = 'none';
+cartTotal.style.display = 'block';
+
+
+cartContainer.innerHTML = cart.map(item => `
+    <div class="cart-item">
+        <div class="cart-item-details-left">
+            <img src="${item.imageurl}" alt="${item.title}" />
+            <div class="cart-item-details">
+                <h4>${item.title}</h4>
+                <p>Price: $${item.price.toFixed(2)}</p>
+                <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+            </div>
+        </div>
+        <div class="controls-container">
+            <div class="quantity-controls">
+                Quantity:
+                <button onclick="decrementQuantity(${item.id})">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="incrementQuantity(${item.id})">+</button>
+            </div>
+            <button class="remove-button" onclick="removeFromCart(${item.id})">Remove</button>
+        </div>
+    </div>
+`).join('');
+}
+}
+function openModal() {
+document.getElementById("seatModal").style.display = "block";
+}
+
+
+// Function to close the modal
+function closeModal() {
+document.getElementById("seatModal").style.display = "none";
+}
+
+
+// Function to place the order
+function placeOrder() {
+const seatNumber = document.getElementById("seatNumber").value;
+if (seatNumber) {
+alert(`Order placed for seat number: ${seatNumber}`);
+closeModal(); // Close the modal after placing the order
+} else {
+alert("Please enter a seat number.");
+}
+}
+
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+const modal = document.getElementById("seatModal");
+if (event.target === modal) {
+closeModal();
+}
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateTotalPrice();
+    renderCart();
+});
+</script>
+<!-- Modal Structure -->
+<div id="seatModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>Enter Your Seat Number</h2>
+        <div class="modal-button">
+
+
+            <input type="number" id="seatNumber" placeholder="Seat Number" />
+            <button class="place-order-button" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
